@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Noise Predection Tool</title>
+  <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/rcstyle.css">
+  <link rel="stylesheet" href="./CSS/reporting.css">
+  <style>
+    #Space {
+      display: none;
+    }
+
+    .straightduct {
+      width: auto;
+    }
+
+    #Path {
+      display: none;
+    }
+
+    #cirduct {
+      display: none;
+    }
+
+    .noisecal {
+      display: none;
+    }
+
+    .room {
+      display: none;
+    }
+
+    .reporting {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="home">
+    <div class="noisecal">
+      <div class="ribbon">
+        <ul>
+          <li>New</li>
+          <li>Open</li>
+          <li>Save</li>
+          <li id="active">Noise Calculation</li>
+          <li onclick="rcinitial()">Room Correction</li>
+          <li onclick="rpinitial()">Reporting</li>
+        </ul>
+      </div>
+      <div class="tools">
+        <abbr title="Component"><img src="./Media/Component.png"></abbr>
+        <abbr title="Add Space"><img src="./Media/space.png" onclick="showSpace()"></abbr>
+        <abbr title="Add Path"><img src="./Media/path.png" onclick="showPath()"></abbr>
+        <abbr title="Rectangle Duct"><img src="./Media/Fitting/1 rect.png" onclick="showrectduct()"></abbr>
+        <abbr title="Circular Duct"><img src="./Media/Fitting/2 Circular duct.png" onclick="showcirduct()"></abbr>
+        <abbr title="Rectangle Miter Elbow"><img src="./Media/Fitting/3 rect-miter.png"></abbr>
+        <abbr title="Rectangle Radius Elbow"><img src="./Media/Fitting/4 Rect radio elbow.png"></abbr>
+        <abbr title="Rectangle Vane Elbow"><img src="./Media/Fitting/5 rec vane.png"></abbr>
+        <abbr title="Circular Miter Elbow"><img src="./Media/Fitting/6 Circular miter elbow.png"></abbr>
+        <abbr title="Circular Radius Elbow"><img src="./Media/Fitting/7 circular radius.png"></abbr>
+        <abbr title="Cross Junction Duct"><img src="./Media/Fitting/8 Cross.png"></abbr>
+        <abbr title="T-Duct"><img src="./Media/Fitting/9 T-Duct.png"></abbr>
+        <abbr title="Take Off"><img src="./Media/Fitting/10 take off.png"></abbr>
+        <abbr title="Flexible Duct"><img src="./Media/flexible .png"></abbr>
+        <abbr title="Rectangle End Transition Loss"><img src="./Media/Fitting/11 Rect End .png"></abbr>
+        <abbr title="Circular End Transition Loss"><img src="./Media/Fitting/12 Circle end.png"></abbr>
+        <abbr title="Rectangle Duct Breakout"><img src="./Media/Fitting/13 rec duct Break.png"></abbr>
+        <abbr title="Circular Duct Breakout"><img src="./Media/Fitting/14 cir duct break.png"></abbr>
+        <abbr title="Limp Lagging"><img src="./Media/Fitting/15 limp lagging.png"></abbr>
+        <abbr title="Rigid Lagging"><img src="./Media/Fitting/16 Rigid lagging .png"></abbr>
+      </div>
+      <div class="workarea">
+        <div class="workpro">
+          <table id="workresult">
+            <thead>
+              <td>&ThickSpace;&ThickSpace;Element</td>
+              <td>Properties</td>
+              <td>NC</td>
+              <td>63</td>
+              <td>125</td>
+              <td>250</td>
+              <td>500</td>
+              <td>1000</td>
+              <td>2000</td>
+              <td>4000</td>
+              <td>dB(A)</td>
+            </thead>
+
+            <tfoot>
+
+            </tfoot>
+          </table>
+        </div>
+        <div class="property">
+          <div class="title">
+            <p>Element View</p>
+          </div>
+          <div class="total">
+            <div class="image">
+              <div id="image"></div>
+            </div>
+            <div class="einput">
+              <table id="straightduct">
+                <thead>
+                  <td>Property</td>
+                  <td>Value</td>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Width (mm)</td>
+                    <td><input type="number" value="603" id="rectductwidth"></td>
+                  </tr>
+                  <tr>
+                    <td>Height (mm)</td>
+                    <td><input type="number" value="603" id="rectductheight"></td>
+                  </tr>
+                  <tr>
+                    <td>Length (mm)</td>
+                    <td><input type="number" value="3000" id="rectductlength"></td>
+                  </tr>
+                  <tr>
+                    <td>Lining Thickness (mm)</td>
+                    <td><input type="number" value="0" id="rectductthick"></td>
+                  </tr>
+                  <tr>
+                    <td>Air Volume(L/s)</td>
+                    <td><input type="number" value="0" id="rectductair"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button onclick="getrectvalue()" id="rectductadd">OK</button>
+                      <button onclick="replacerectduct()" id="rectductedit">OK</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table id="Space">
+                <thead>
+                  <td>Property</td>
+                  <td>Value</td>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="text" value="Space(0)" id="spacename"></td>
+                  </tr>
+                  <tr>
+                    <td>Noise Criteria</td>
+                    <td><input type="text" value="35" id="spacenc"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button onclick="getspace()">OK</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table id="Path">
+                <thead>
+                  <td>Property</td>
+                  <td>Value</td>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="text" value="Path Name(0)" id="pathname"></td>
+                  </tr>
+                  <tr>
+                    <td>Path Type</td>
+                    <td><select id="pathtype">
+                        <option value="Supply Path">Supply Path</option>
+                        <option value="Return Path">Return Path</option>
+                        <option value="Exhaust Path">Exhaust Path</option>
+                        <option value="Radiated">Radiated</option>
+                        <option value="Duct Breakout">Duct Breakout</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <button onclick="getpath()">OK</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table id="cirduct">
+                <tr>
+                  <td>Diameter (mm)</td>
+                  <td><input type="number" value="603" id="cirductdia"></td>
+                </tr>
+                <tr>
+                  <td>Length (mm)</td>
+                  <td><input type="number" value="3000" id="cirductlength"></td>
+                </tr>
+                <tr>
+                  <td>Lining Thickness (mm)</td>
+                  <td><input type="number" value="0" id="cirductthick"></td>
+                </tr>
+                <tr>
+                  <td>Air Volume(L/s)</td>
+                  <td><input type="number" value="0" id="cirductair"></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <button onclick="getcirduct()" id="cirductadd">OK</button>
+                    <button onclick="replacecirduct()" id="cirductedit">OK</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="errormsgbox">
+      <div class="messagebox">
+        <div class="msgtitle">
+          <p>&ThinSpace;Message Box</p>
+          <img src="./Media/icons/close_FILL0_wght400_GRAD0_opsz48.svg" width="20px" height="20px"
+            onclick="errorbox('ok')">
+        </div>
+        <div class="msgcont">
+          <p id="errortexts">You don't Add Path without the Space..!</p>
+        </div>
+        <div class="msginput">
+          <button onclick="errorbox('ok')">OK</button>
+          <button onclick="errorbox('cancel')">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="room">
+      <div class="ribbon">
+        <ul>
+          <li>New</li>
+          <li onclick="diplyopen()">Open</li>
+          <li onclick="Save(roomrawdata)">Save</li>
+          <li onclick="ncinitial()">Noise Calculation</li>
+          <li id="active">Room Correction</li>
+          <li onclick="rpinitial()">Reporting</li>
+        </ul>
+      </div>
+      <div class="rom-cont">
+        <div class="room-input">
+          <table>
+            <tbody id="roomdata1">
+              <tr>
+                <td colspan="6" class="heading">Basic Room Details</td>
+              </tr>
+              <tr>
+                <td><label for="room-name">Room Name:</label></td>
+                <td colspan="2"><input type="text" id="room-name" class="rin"></td>
+              </tr>
+              <tr>
+                <td><label for="room-tag">Room Tag:</label></td>
+                <td colspan="2"><input type="text" id="room-tag" class="rin"></td>
+              </tr>
+              <tr>
+                <td colspan="6" class="heading">Room Data</td>
+              </tr>
+              <tr>
+                <td><label for="room-height">Height (m):</label></td>
+                <td><input type="number" id="room-height" class="rin"></td>
+
+                <td><label for="room-area">Room Area (m<sup>2</sup>):</label></td>
+                <td><input type="number" id="room-area" class="rin"></td>
+
+                <td><label for="room-wall-length">Wall Length (m):</label></td>
+                <td><input type="number" id="room-wall-length" class="rin"></td>
+              </tr>
+              <tr>
+                <td><label for="room-directivity">Room Directivity:</label></td>
+                <td><input type="number" id="room-directivity" class="rin"></td>
+
+                <td><label for="room-reverb-crit">RT Criteria:</label></td>
+                <td><input type="number" id="room-reverb-crit" class="rin"></td>
+
+                <td><label for="room-criteria">Room Criteria:</label></td>
+                <td><input type="number" id="room-criteria" class="rin"></td>
+              </tr>
+              <tr>
+                <td colspan="6" class="heading">Finishes Data</td>
+              </tr>
+            </tbody>
+            <tbody id="roomdataceiling">
+              <tr>
+                <td><label>Ceiling:</label></td>
+                <td><button class="addroombtn" onclick="addrow('roomdataceiling')">+</button></td>
+                <td><button class="addroombtn" onclick="removeceiling('roomdataceiling')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody id="roomdatafloor">
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td><label>Floor:</label></td>
+                <td><button class="addroombtn" onclick="addrow('roomdatafloor')">+</button></td>
+                <td><button class="addroombtn" onclick="removeceiling('roomdatafloor')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody id="roomdatawall">
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td><label>Wall:</label></td>
+                <td><button class="addroombtn" onclick="addrow('roomdatawall')">+</button></td>
+                <td><button class="addroombtn" onclick="removeceiling('roomdatawall')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody id="roomdatadoor">
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td><label>Door:</label></td>
+                <td><button class="addroombtn" onclick="addrow('roomdatadoor')">+</button></td>
+                <td><button class="addroombtn" onclick="removeceiling('roomdatadoor')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody id="roomdataglass">
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td><label>Glazing:</label></td>
+                <td><button class="addroombtn" onclick="addrow('roomdataglass')">+</button></td>
+                <td><button class="addroombtn" onclick="removeceiling('roomdataglass')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td colspan="6">Power Value:</td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  <table id="fztable">
+                    <tr>
+                      <td>63</td>
+                      <td>125</td>
+                      <td>250</td>
+                      <td>500</td>
+                      <td>1kHz</td>
+                      <td>2kHz</td>
+                      <td>4kHz</td>
+                    </tr>
+                    <tr>
+                      <td><input type="number" class="rcinputfz" id="f63"></td>
+                      <td><input type="number" class="rcinputfz" id="f125"></td>
+                      <td><input type="number" class="rcinputfz" id="f250"></td>
+                      <td><input type="number" class="rcinputfz" id="f500"></td>
+                      <td><input type="number" class="rcinputfz" id="f1k"></td>
+                      <td><input type="number" class="rcinputfz" id="f2k"></td>
+                      <td><input type="number" class="rcinputfz" id="f4k"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td colspan="6" id="cbtnhold"><Button id="calculatebtn" onclick="roomcalculate()">Calculate</Button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" id="errormess">
+                  <p id="displayerr"></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" class="breakline"></td>
+              </tr>
+              <tr>
+                <td>Do you Have Free Inlet: <input type="radio" name="freeinlet" value="yes" onchange="freeinletyrn()">
+                  Yes <input type="radio" name="freeinlet" value="No" onchange="freeinletyrn()" checked>No</td>
+              </tr>
+            </tfoot>
+          </table>
+          <table id="freeinletinput">
+            <tbody>
+              <tr>
+                <td colspan="10" class="heading">Free Inlet Calculation</td>
+              </tr>
+            </tbody>
+            <tbody id="freePow">
+              <tr>
+                <td><label>Power Value :</label></td>
+                <td><button class="addroombtn" onclick="addpowrow('Pathpowvalue')">+</button></td>
+                <td><button class="addroombtn" onclick="removerpathpow('Pathpowvalue')">-</button></td>
+              </tr>
+            </tbody>
+            <tbody id="Pathpowvalue">
+
+            </tbody>
+            <tbody id="calculate">
+              <tr>
+                <td colspan="10" class="breakline"></td>
+              </tr>
+              <tr>
+                <td>Bottom of Duct (mm):</td>
+                <td><input type="number" class="rcinputfz" id="BOD"></td>
+                <td colspan="2">Ceiling to Floor (mm):</td>
+                <td><input type="number" class="rcinputfz" id="CTF"></td>
+                <td colspan="4">Distance B/W Diffuser to Unit (mm):</td>
+                <td><input type="number" class="rcinputfz" id="DBWDAU"></td>
+              </tr>
+              <tr>
+                <td>Diffuser Area (m<sup>2</sup>):</td>
+                <td><input type="number" class="rcinputfz" id="darea"></td>
+                <td colspan="2">Directivity:</td>
+                <td><input type="number" class="rcinputfz" id="freedirect"></td>
+                <td colspan="4">Free inlet Trasmission Loss R<sub>w </sub>:</td>
+                <td><input type="number" class="rcinputfz" id="fitl"></td>
+              </tr>
+              <tr>
+                <td colspan="10" class="breakline"></td>
+              </tr>
+            </tbody>
+
+            <tbody id="freedatafloor">
+              <tr>
+                <td>Floor Slab:</td>
+                <td><button class="addroombtn" onclick="addfreefloor('freedatafloor')">+</button></td>
+                <td><button class="addroombtn" onclick="cutmaterial('freedatafloor')">-</button></td>
+              </tr>
+            </tbody>
+
+            <tbody id="freedatawall">
+              <tr>
+                <td colspan="10" class="breakline"></td>
+              </tr>
+              <tr>
+                <td>Wall:</td>
+                <td><button class="addroombtn" onclick="addfreefloor('freedatawall')">+</button></td>
+                <td><button class="addroombtn" onclick="cutmaterial('freedatawall')">-</button></td>
+              </tr>
+            </tbody>
+
+            <tbody id="freedataceiling">
+              <tr>
+                <td colspan="10" class="breakline"></td>
+              </tr>
+              <tr>
+                <td>False Ceiling :</td>
+                <td><button class="addroombtn" onclick="addfreefloor('freedataceiling')">+</button></td>
+                <td><button class="addroombtn" onclick="cutmaterial('freedataceiling')">-</button></td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <td colspan="10" class="breakline"></td>
+              </tr>
+              <tr>
+                <td colspan="10" id="cbtnhold"><Button id="calculatebtn" onclick="FreeCal()">Calculate</Button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="10" id="errorfree">
+                  <p id="displayerfree"></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="reporting">
+      <div class="ribbon">
+        <ul>
+          <li>New</li>
+          <li>Open</li>
+          <li>Save</li>
+          <li onclick="ncinitial()">Noise Calculation</li>
+          <li onclick="rcinitial()">Room Correction</li>
+          <li id="active">Reporting</li>
+        </ul>
+      </div>
+      <div class="report-cont">
+        <div class="paper">
+          <table border="1px">
+            <tbody>
+              <tr>
+                <td colspan="8" class="bigtitle tag">Room Correction <br><span id="disname">Loadding...</span></td>
+              </tr>
+              <tr>
+                <td colspan="8" class="bigtitle">RECEIVER ROOM</td>
+              </tr>
+              <tr>
+                <td colspan="8" class="smalltitle">ROOM SURFACE AREA DETAILS</td>
+              </tr>
+            </tbody>
+            <tbody id="row1">
+
+            </tbody>
+
+            <tbody id="staticco">
+              <tr>
+                <td colspan="8" class="smalltitle">Absorption Co-effiient (α)Data</td>
+              </tr>
+              <tr>
+                <td style="text-align:left;background-color: rgb(238, 238, 238);padding-left:3px">Frequency (Hz)</td>
+                <td class="setwidth">63</td>
+                <td class="setwidth">125</td>
+                <td class="setwidth">250</td>
+                <td class="setwidth">500</td>
+                <td class="setwidth">1000</td>
+                <td class="setwidth">2000</td>
+                <td class="setwidth">4000</td>
+              </tr>
+            </tbody>
+            <tbody id="coeffient">
+            </tbody>
+            <tbody>
+              <tr>
+                <td colspan="8" class="bigtitle">Evaluation</td>
+              </tr>
+              <tr>
+                <td colspan="8" class="smalltitle">Room Constant Evaluation</td>
+              </tr>
+            </tbody>
+            <tbody id="roomconstant">
+
+            </tbody>
+            <tbody>
+              <tr>
+                <td colspan="8" class="smalltitle">Room Correction Evaluation</td>
+              </tr>
+            </tbody>
+            <tbody id="rcresult">
+
+            </tbody>
+          </table>
+          <table border="1px">
+            <tbody id="freeresult">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- Home-->
+  <div class="openfile">
+    <div class="open-cont">
+      <div class="close" onclick="closeopentab()">
+        <img src="./Media/icons/close_FILL0_wght400_GRAD0_opsz48.svg" id="openclosebtn">
+      </div>
+      <p>Drag and Drop File Here</p>
+      <p>(or)</p>
+      <p><span>Browers</span></p>
+      <input type="file" id="open-file" onchange="Open()" accept=".pks">
+    </div>
+  </div>
+
+  <!---Below Javascript File-->
+  <script src="./JS/scritp.js"></script>
+  <script src="./JS/Calculation.js"></script>
+  <script src="./JS/display.js"></script>
+  <script src="./JS/editcom.js"></script>
+  <script src="./JS/Roomc/rc.js"></script>
+  <script src="./JS/Roomc/rccalculations.js"></script>
+  <script src="./JS/Reporting/report.js"></script>
+  <script src="./JS/Saveopen/saveio.js"></script>
+  <script src="./JS/Roomc/freeinlet.js"></script>
+</body>
+
+</html>

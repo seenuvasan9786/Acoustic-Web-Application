@@ -1,0 +1,358 @@
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family:'Lato', sans-serif;
+  font-size: small;
+}
+
+
+.home{
+    width: 100vw;
+    height: 100vh;
+}
+.home .noisecal{
+  width: 100%;
+  height: 100%;
+}
+.home .noisecal .ribbon{
+  width: 100%;
+  height:4.2%;
+  background-color: rgb(203, 207, 212);
+}
+.home .noisecal .ribbon ul li{
+  display: inline;
+  margin:5px;
+  padding:4px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  cursor: pointer;
+  background-color: rgb(199, 204, 210);
+  border: 1px solid rgb(199, 204, 210);
+  font-weight: bold;
+}
+.home .noisecal .ribbon ul{
+  padding-top: 5px;
+}
+#active{
+  background-color:rgb(246, 247, 247);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.home .noisecal .ribbon ul li:hover{
+  border: 1px solid rgb(46, 150, 255);
+}
+.home .noisecal .tools img{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+.home .noisecal .tools img:hover{
+  border: 1px solid rgb(46, 150, 255);
+  background-color: rgb(246, 247, 247);
+}
+.home .noisecal .tools{
+  width: 100%;
+  height: 10%;
+  /*background-color: rgb(223, 225, 229);*/
+  background:linear-gradient(180deg,rgb(194, 196, 201),rgba(163, 167, 172, 0.89));
+  border-bottom: 3px solid rgb(185, 201, 218);
+}
+.home .noisecal .workarea{
+  width: 100%;
+  height: 85.6%;
+  display: flex;
+}
+.home .noisecal .workarea .workpro{
+  width: 75%;
+  height: 100%;
+  border-right: 4px solid rgb(185, 201, 218);
+  overflow: scroll;
+}
+.home .noisecal .workarea .workpro table{
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  user-select: none;
+}
+.home .noisecal .workarea .workpro table thead td{
+  padding: 0;
+  margin: 0;
+  height: 20px;
+}
+.home .noisecal .workarea .workpro table thead{
+  background-color: rgb(217, 219, 225);
+  border-bottom: 2px solid rgb(185, 201, 218);
+  position: sticky;
+  top:0;
+}
+
+.home .noisecal .workarea .property{
+  width: 25%;
+  height: 100%;
+  border: 1% solid rgb(185, 201, 218);
+}
+.home .noisecal .workarea .property .title{
+  width: 100%;
+  height: 3.4%;
+  background-color: rgb(217, 219, 225);
+  border-bottom: 1px solid rgb(46, 150, 255);
+}
+.home .noisecal .workarea .property .title p{
+  padding-left: 5px;
+  padding-top: 1px;
+}
+.home .noisecal .workarea .property .total{
+  width: 100%;
+  height: 96.6%;/* We have total 96.6%*/
+}
+.home .noisecal .workarea .property .total .image{
+  width: 100%;
+  height: 40%;
+}
+.home .noisecal .workarea .property .total .image #image{
+  width: 100%;
+  height: 100%;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: none;
+}
+.home .noisecal .workarea .property .total .einput{
+  width: 1005;
+  height: 60%;
+}
+.home .noisecal .workarea .property .total .einput table{
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+.home .noisecal .workarea .property .total .einput #straightduct{
+  display: none;
+}
+.home .noisecal .workarea .property .total .einput table thead{
+  background-color: rgb(217, 219, 225) ;
+  
+}
+.home .noisecal .workarea .property .total .einput table thead td{
+  padding: 2px;
+  border: 1px solid gray;
+}
+.home .noisecal .workarea .property .total .einput table tbody td{
+  padding: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-width:100px;
+  width: 40%;
+  border: 1px solid gray;
+}
+.home .noisecal .workarea .property .total .einput table tbody td input{
+  width: 100px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+.home .noisecal .workarea .property .total .einput table tbody td button{
+  width: 100px;
+  height: 25px;
+  margin-left: 35%;
+  cursor: pointer;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(1){
+  padding-left: 5px;
+}
+.home .noisecal .workarea .workpro table tbody tr td{
+  padding-top: 5px;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(11){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(10){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(9){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(8){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(7){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(6){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(5){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table tbody tr td:nth-child(4){
+  width:5%;
+  text-align: center;
+}
+
+/*****************************/
+.home .noisecal .workarea .workpro table thead tr td:nth-child(11){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(10){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(9){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(8){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(7){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(6){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(5){
+  width:5%;
+  text-align: center;
+}
+.home .noisecal .workarea .workpro table thead tr td:nth-child(4){
+  width:5%;
+  text-align: center;
+}
+
+
+
+/********Seleced Row Code***/
+.home .noisecal .workarea .workpro table .tablebody tr:hover{
+  background-color:rgb(215, 217, 224) ;
+}
+.selectrow{
+  background-color: rgb(202, 228, 255);
+}
+
+
+.errormsgbox{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.errormsgbox .messagebox{
+  width: 300px;
+  height:150px;
+  border: 1px solid rgb(112, 112, 112);
+  overflow: hidden;
+}
+.errormsgbox .messagebox .msgtitle{
+  width:100%;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.errormsgbox .messagebox .msgcont{
+  width:100%;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  align-items:center;
+  padding:0px 10px 0px 20px;
+}
+.errormsgbox .messagebox .msginput{
+  width:100%;
+  height: 35px;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  align-items: center;
+  padding: 0px 5px 0px 5px;
+  justify-content: space-around;
+
+}
+.errormsgbox .messagebox .msginput button{
+  width: 60px;
+}
+
+.openfile{
+  width:100vw;
+  min-height: 100vh;
+  height: auto;
+  position: absolute;
+  top:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.openfile .open-cont{
+  width: 400px;
+  height: 220px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  border: 2px solid gray;
+  background-image: url(../Media/icons/upload.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.openfile .open-cont p{
+  text-align: center;
+  position: relative;
+  top: 100px;
+  font-weight: 800;
+
+}
+.openfile .open-cont p span{
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  top: 15px;
+  background: #3535ed;
+  color: white;
+}
+.openfile .open-cont input{
+  width: 396px;
+  height: 216px;
+  position: relative;
+  top: -54px;
+  left: 0px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+#openclosebtn{
+  width: 17px;
+  position: relative;
+  top: 3px;
+  right: -375px;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#openclosebtn:hover{
+  background-color: #8190f6;
+}

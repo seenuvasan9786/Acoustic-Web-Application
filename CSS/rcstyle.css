@@ -1,0 +1,158 @@
+.home .room{
+width: 100%;
+height: 100%;
+}
+.home .room .ribbon{
+width: 100%;
+height:27px;
+background-color: rgb(203, 207, 212);
+}
+.home .room .ribbon ul li{
+display: inline;
+margin:5px;
+padding:4px;
+padding-bottom: 6px;
+padding-left: 10px;
+cursor: pointer;
+background-color: rgb(199, 204, 210);
+border: 1px solid rgb(199, 204, 210);
+font-weight: bold;
+}
+.home .room .ribbon ul{
+padding-top: 5px;
+}
+.home .room .ribbon ul li:hover{
+    border: 1px solid rgb(46, 150, 255);
+}
+
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+.home .room .rom-cont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.home .room .rom-cont .room-input{
+    width: 1100px;
+    height: auto;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding:15px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.home .room .rom-cont .room-input table{
+    width: 100%;
+    border-spacing: 15px;
+    font-size: large;
+}
+.home .room .rom-cont .room-input table .heading{
+    background-color: rgb(203, 207, 212);
+    padding: 5px;
+}
+.home .room .rom-cont .room-input table tr{
+    margin-bottom: 15px;
+}
+.home .room .rom-cont .room-input label{
+    font-size: large;
+    text-align: center;
+}
+.home .room .rom-cont .room-input .rin{
+    width: 76px;
+    height: 30px;
+    text-align: center;
+}
+.addroombtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.ceilinginputs{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.floorinputs{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.wallinputs{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.doorinputs{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.glassinputs{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
+.breakline{
+    border: 0.5px solid rgb(203, 207, 212);
+}
+#cbtnhold{
+    text-align: center;
+}
+
+#calculatebtn{
+    width: 80px;
+    height: 35px;
+}
+#errormess{
+    text-align: center;
+}
+#errormess p{
+    color:red;
+    font-weight: bold;
+    font-size: small;
+}
+.rcinputfz{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+}
+#fztable tr td{
+    text-align: center;
+
+}
+#room-name,#room-tag{
+    width: 200px;
+}
+.tag{
+    height: 40px;
+    line-height: 15px;
+}
+
+/*Free inlet Below*/
+.freeinletfz{
+    width: 52px;
+    height: 30px;
+    text-align: center;
+}
+.freeinlettext{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+#displayerfree{
+    text-align: center;
+    color: red;
+    font-size: small;
+    font-weight: bold;
+}
+
+@media print{
+    .ribbon{
+        display: none;
+    }
+}
